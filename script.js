@@ -18,6 +18,7 @@ var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', ':', ';', '<', '>', '.', '?', '/'];
+var combined = []
 
 //create a function that gathers the user's choices
 
@@ -35,3 +36,41 @@ var choises = myFunction();
 
 
 // create a function that creates an array of combined characters sets based on the user's choices
+
+function generatePass() {
+  var combinedChars = [];
+  var passw = '';
+ 
+
+  var includeLowercase = choises[1];
+  var includeUppercase = choises[2];
+  var includeNumbers = choises[3];
+  var includeSpecialCharacters = choises[4];
+
+  if (includeLowercase) {
+      combinedChars = combinedChars.concat(lowercase);
+  }
+
+  if (includeLowercase) {
+      combinedChars = combinedChars.concat(uppercase);
+  }
+
+  if (includeLowercase) {
+      combinedChars = combinedChars.concat(numbers);
+  }
+
+  if (includeLowercase) {
+      combinedChars = combinedChars.concat(specialCharacters);
+  }
+
+  for (var count = 0; count < choises[0]; count++) {
+      var ranIndex = Math.floor(Math.random() * combinedChars.length)
+
+      passw += combinedChars[ranIndex];
+  }
+
+  return passw;
+}
+
+var pass = generatePass();
+console.log(pass);
