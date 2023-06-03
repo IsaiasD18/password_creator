@@ -30,7 +30,7 @@ var characters = ['!', '@', '#'];
 //create a function that gathers the user's choices and present the user a series of prompts for password criteria.
 
 function myFunction() {
-  // var quantity = Number(prompt('Please provide an quantity between 8 and 128'));
+  // create a variable for the different all the arrays
   var includeLowercase = confirm('Click OK to include lowercase letters')
   var includeUppercase = confirm('Click OK to include uppercase letters')
   var includeNumbers = confirm('Click OK to include numbers letters')
@@ -53,17 +53,13 @@ function myFunction() {
   //create a variable that will store the user's password
   var passw = '';
 
-  // create a variable for the different all the arrays
-  var includeLowercase = includeLowercase;
-  var includeUppercase = includeUppercase;
-  var includeNumbers = includeNumbers;
-  var includeSpecialCharacters = includeSpecialCharacters;
 
   //Cretate an if statement to make sure the user's choose at least one of the set of characters for the password
   if (!includeLowercase && !includeUppercase && !includeNumbers && !includeSpecialCharacters) {
     alert("You must press OK at least once. Try again! ");
     return;
   } else
+
 
     //Concatenate or combine my variables of choises into my empty array : cominedChars
     if (includeLowercase) {
@@ -82,9 +78,11 @@ function myFunction() {
     combinedChars = combinedChars.concat(characters);
   }
 
+
   //create a for loop so it can run the amount of digits that the user wants in its random password
   for (var count = 0; count < quantity; count++) {
     var ranIndex = Math.floor(Math.random() * combinedChars.length)
+
 
     //assigned the random password created to my variable passw which has the empty string 
     passw += combinedChars[ranIndex];
